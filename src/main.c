@@ -5,9 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "common.h"
-
-extern void assemble(const char* source_file);
-extern void interpret(const char* source_file);
+#include "asm/parser.h"
 
 static void usage(const char* prog) {
     fprintf(stderr, "Use:\n");
@@ -27,9 +25,11 @@ int main(int argc, char** argv) {
     const char* file = argv[2];
 
     if (strcmp(flag, "-a") == 0) {
-        assemble(file);
+        Line **lines;
+        uint32_t out_count = 0;
+        parse(file, lines, out_count);
     } else if (strcmp(flag, "-r") == 0) {
-        interpret(file);
+        return 7;
     } else {
         usage(argv[0]);
         return 1;

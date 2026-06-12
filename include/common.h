@@ -2,6 +2,8 @@
 // (c) s4pphic 2026
 // SPDX-License-Identifier: APACHE-2.0
 
+#pragma once
+
 #include <stdbool.h>
 #include <stdint.h>
 
