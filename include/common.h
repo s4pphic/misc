@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define MISC_MAX_MEMORY 0xFFFD
+
 typedef enum {
     OP_NOP = 0,
     OP_MOV,
@@ -57,6 +59,11 @@ typedef struct {
 // The actual "CPU" that'll run the code. Extremely basic, but gets the job done.
 typedef struct {
     uint8_t regs[REG_COUNT];
-    uint8_t mem[UINT16_MAX];
+    uint8_t mem[MISC_MAX_MEMORY];
     bool running;
 } CPU;
+
+// Mem-mapped I/O is convenient!
+
+#define IO_STDOUT 0xFFFF    // Write a byte to stdout
+#define IO_STDIN 0xFFFE     // Read a byte from stdin
