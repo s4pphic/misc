@@ -19,7 +19,6 @@ xor a, b
 jmp label
 jz source, label
 jnz source, label
-cmp a, b
 push reg
 pop reg
 call label
