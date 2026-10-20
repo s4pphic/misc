@@ -16,9 +16,9 @@ and a, b
 not a, b
 or a, b
 xor a, b
-jmp line
-jz source, line
-jnz source, line
+jmp label
+jz source, label
+jnz source, label
 cmp a, b
 push reg
 pop reg
